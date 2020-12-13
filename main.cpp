@@ -30,7 +30,6 @@ void Draw()
         {
             if (j == 0)
                 cout << "#";
-            
             if (i == y && j == x)
                 cout << "o";
             else if (i == fruitY && j == fruitX)
@@ -65,7 +64,7 @@ void Input()
                     break;
             case 's';
                 dir = DOWN;
-                    brreak;
+                    break;
             case 'x';
                 gameOver = true;
                     break;
@@ -74,7 +73,23 @@ void Input()
 }
 void Logic()
 {
-
+    switch (dir)
+    {
+        case LEFT:
+            x--;
+                break;
+        case RIGHT:
+            x++;
+                break;
+        case UP:
+            y--;
+                break;
+        case DOWN:
+            y++;
+                break;
+        default:
+            break;
+    }
 }
 int main()
 {
