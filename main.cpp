@@ -1,5 +1,6 @@
 #include <iostream>
 #include <conio.h>
+#include <windows.h>
 using namespace std;
 bool gameOver;
 const int width = 20;
@@ -117,8 +118,10 @@ void Logic()
         default:
             break;
     }
-    if (x > width && || x < 0 || y > height || y < 0) //game over bila nabrak tembok
-        gameOver = true;
+    // if (x > width && || x < 0 || y > height || y < 0) //game over bila nabrak tembok
+        // gameOver = true;
+    if (x >= width) x = 0; else if (x < 0) x = width - 1;
+       if (y >= height) x = 0; else if (y < 0) x = height - 1;
     for (int i = 0; i < nTail; i++)
         if (tailX[i] == x && tailY[i] == y)
             gameOver = true;
@@ -138,7 +141,7 @@ int main()
         Draw();
         Input();
         Logic();
-        // Sleep(10); sleep(10);
+        Sleep(10); sleep(10);
     }
     return 0;
 }
