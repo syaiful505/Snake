@@ -38,21 +38,23 @@ void Draw()
                 cout << "F";
             else
             {
+                bool print = false;
                 for (int k = 0; k < nTail; k++)
                 {
                     if (tailX[k] == j && tailY[k] == i)
                     {
                         cout << "o";
+                            print = true;
                     }
                 }
-                cout << " ";
+                    if (!print)
+                        cout << " ";
             }
             if (j == width-1)
                 cout << "#";
         }
         cout << endl;
     }
-
     for (int i = 0; i < width+2; i++)
         cout << "#";
             cout << endl;
@@ -95,6 +97,8 @@ void Logic()
         tailY[i] = prevY;
         prevX = prev2X;
         prevY = prev2Y;
+        tailX[0] = x;
+        tailY[0] = y;
     }
     switch (dir)
     {
